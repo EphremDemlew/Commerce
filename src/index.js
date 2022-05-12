@@ -5,6 +5,7 @@ const connectDB = require("./server/config/connection");
 const productsRoute = require("./server/routes/ProductsRouter");
 const cartRoute = require("./server/routes/CartRouter");
 const authRoute = require("./server/routes/auth");
+const userRoute = require("./server/routes/user");
 
 const app = express();
 
@@ -22,6 +23,7 @@ app.use(express.json());
 app.use("/api/products", productsRoute);
 app.use("/api/carts", cartRoute);
 app.use("/api/user", authRoute);
+app.use("/api/user", userRoute);
 
 app.listen(PORT, () => {
   console.log(`server strted on port ${PORT}`);

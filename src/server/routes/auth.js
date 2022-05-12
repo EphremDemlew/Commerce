@@ -50,7 +50,8 @@ route.post("/login", async (req, res) => {
   if (!correctPassword) {
     return res.status(400).send("Email or Password is incorrect.");
   }
-  res.send(user._id);
+
+  res.status(200).send("Loged in sucessfully ");
 });
 
 module.exports = route;
