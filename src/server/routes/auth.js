@@ -40,7 +40,7 @@ route.post("/login", async (req, res) => {
   //check Email
   const user = await User.findOne({ email: req.body.email });
   if (!user) {
-    return res.status(400).send("Email or Password is incorrect.");
+    return res.send("Email or Password is incorrect.");
   }
   //check Password
   const correctPassword = await bcrypt.compare(
@@ -48,7 +48,7 @@ route.post("/login", async (req, res) => {
     user.password
   );
   if (!correctPassword) {
-    return res.status(400).send("Email or Password is incorrect.");
+    return res.send("Email or Password is incorrect.");
   }
 
   res.status(200).send("Loged in sucessfully ");
